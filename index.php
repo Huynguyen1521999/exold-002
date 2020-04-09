@@ -22,10 +22,10 @@
         $result = 'Phương trình vô nghiệm';
     }
     else if ($delta == 0){
-        $result = 'Phương trình nghiệp kép x1 = x2 = ' . (-$b/2*$a);
+        $result = 'Phương trình nghiệm kép x1 = x2 = ' . (-$b/2*$a);
     }
     else {
-        $result = 'Phương trình có hai nghiệp phân biệt, x1 = ' . ((-$b + sqrt($delta))/2*$a);
+        $result = 'Phương trình có hai nghiệm phân biệt, x1 = ' . ((-$b + sqrt($delta))/2*$a);
         $result .= ',x2 = ' . ((-$b - sqrt($delta))/2*$a);
     }
             }
