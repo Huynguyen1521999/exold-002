@@ -19,7 +19,7 @@
     $delta = ($b*$b) - (4*$a*$c);
  
     if ($delta < 0){
-        $result = 'Phương trình vô nghiệp';
+        $result = 'Phương trình vô nghiệm';
     }
     else if ($delta == 0){
         $result = 'Phương trình nghiệp kép x1 = x2 = ' . (-$b/2*$a);
