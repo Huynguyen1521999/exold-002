@@ -7,7 +7,7 @@
 <body>
 
   <h1>Cloud-Php-Ex000</h1>
-  <p>Chạy thử 1.</p>
+  <p>Xin Chao cac ban minh ten la Huy.</p>
 
 </body>
 </html>
