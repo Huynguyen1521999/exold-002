@@ -7,18 +7,32 @@
     </head>
     <body>
         <?php 
-            $tam_giac = '';
-            if (isset($_POST['calculate']))
-            {
-                 // Bước 1: Lấy tham số
-    $a = isset($_POST['a']) ? $_POST['a'] : '';
-    $b = isset($_POST['b']) ? $_POST['b'] : '';
-    $c = isset($_POST['c']) ? $_POST['c'] : '';
+        $a=$_GET[‘a’];
+        $b=$_GET[‘b’];
+        $c=$_GET[‘c’];    
+        // Kiểm tra nhập thiếu dữ liệu.        
+if (empty($a) || empty($b) || empty($c)) {
+    echo ‘Nhập thiếu dữ liệu !!!’;
+    exit();
+}
+//Kiểm tra độ dài có phải là số hay không.
+if (!is_numeric ($a) || !is_numeric ($b) || !is_numeric ($c)) {
+    echo ‘Độ dài phải là số !!!’;
+    exit();
+}
+if (($a + $b) > $c && ($b + $c) > $a && ($c + $a) > $b) {
+        echo ‘Thỏa mãn yêu cầu là tam giác ‘;
+}
+else {
+       echo ‘Không tạo thành được tam giác ‘;
+}
+            //Loại tam giác.
  
-    // kiểm tra có phải là 1 tam giác không
-            }
+$a2=$a*$a;
+$b2=$b*$b;
+$c2=$c*$c;
  
-    if ($a == $b && $b == $c) {
+if ($a == $b && $b == $c) {
         $tam_giac = ‘Tam giác đều’;
 }
     
@@ -38,19 +52,14 @@ else if ($a2==$b2+$c2 || $b2==$a2+$c2 || $c2==$a2+$b2) {
 else {
         $tam_giac = ‘Tam giác thường’;
 }
-            
         ?>
         <h1>Phân loại tam giác</h1>
-        <form method="post" action="">
-            <input type="text" style="width: 20px" name="a" value=""/>cạnh 1
-            &
-            <input type="text" style="width: 20px" name="b" value=""/>cạnh 2
-            &
-            <input type="text" style="width: 20px" name="c" value=""/>cạnh 3
-            
-            <br/><br/>
-            <input type="submit" name="calculate" value="phân loại" />
-        </form>
-        <?php echo $tam_giac; ?>
+        <form action=”action.php” method=”get”>
+   Độ dài đoạn thứ nhất: <input type=”text” name=”a”><br/>
+   Độ dài đoạn thứ hai: <input type=”text” name=”b”><br/>
+   Độ dài đoạn thứ ba: <input type=”text” name=”c”><br/>
+   <input type=”submit” value=”Tính toán”>
+</form>
+        
     </body>
 </html>
