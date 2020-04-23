@@ -1,65 +1,50 @@
+ <script>
+    function getLinkJSONpt2() {
+        var a,b,c;
+        a = document.getElementById("inputa").value;
+        b = document.getElementById("inputb").value;
+        c = document.getElementById("inputc").value;
+        window.open("api.php/checkptbac2/"+a+"/"+b+"/"+c);
+    }
+    function getLinkJSONyear() {
+        var a;
+        a = document.getElementById("inputyear").value;
+        window.open("api.php/checkyear/"+a);
+    }
+    function getData()
+    {
+        document.getElementById("txt_apijsonpt2").innerHTML = window.location.host +"/CloudPhpEX/api.php/checkptbac2/a/b/c";
+        document.getElementById("txt_apijsonyear").innerHTML = window.location.host +"/CloudPhpEX/api.php/checkyear/year";
+    }
+</script>
 <!DOCTYPE html>
 <html lang="vi" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-        <title>Phân loại tam giác</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <?php 
-        $a=$_GET[‘a’];
-        $b=$_GET[‘b’];
-        $c=$_GET[‘c’];    
-        // Kiểm tra nhập thiếu dữ liệu.        
-if (empty($a) || empty($b) || empty($c)) {
-    echo ‘Nhập thiếu dữ liệu !!!’;
-    exit();
-}
-//Kiểm tra độ dài có phải là số hay không.
-if (!is_numeric ($a) || !is_numeric ($b) || !is_numeric ($c)) {
-    echo ‘Độ dài phải là số !!!’;
-    exit();
-}
-if (($a + $b) > $c && ($b + $c) > $a && ($c + $a) > $b) {
-        echo ‘Thỏa mãn yêu cầu là tam giác ‘;
-}
-else {
-       echo ‘Không tạo thành được tam giác ‘;
-}
-            //Loại tam giác.
- 
-$a2=$a*$a;
-$b2=$b*$b;
-$c2=$c*$c;
- 
-if ($a == $b && $b == $c) {
-        $tam_giac = ‘Tam giác đều’;
-}
-    
-else if ($a == $b || $a == $c || $c == $b)  {
-        if ($a2==$b2+$c2 || $b2==$a2+$c2 || $c2==$a2+$b2) {
-            $tam_giac = ‘Tam giác vuông cân’;
-        }
-else {
-            $tam_giac = ‘Tâm giác cân’;
-        }
-}
-    
-else if ($a2==$b2+$c2 || $b2==$a2+$c2 || $c2==$a2+$b2) {
-        $tam_giac= ‘Tam giác vuông’;
-}
-    
-else {
-        $tam_giac = ‘Tam giác thường’;
-}
-        ?>
-        <h1>Phân loại tam giác</h1>
-        <form action=”action.php” method=”get”>
-   Độ dài đoạn thứ nhất: <input type=”text” name=”a”><br/>
-   Độ dài đoạn thứ hai: <input type=”text” name=”b”><br/>
-   Độ dài đoạn thứ ba: <input type=”text” name=”c”><br/>
-   <input type=”submit” value=”Tính toán”>
+    <title>Ex restful api</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Giải phương trình bậc 2</h1>
+<a>ax² + bx + c = 0</a>
+<form>
+    <label for="fname">a</label><br>
+    <input type="number" id="inputa" name="fname"><br>
+    <label for="lname">b</label><br>
+    <input type="number" id="inputb" name="lname"><br>
+    <label for="lname">c</label><br>
+    <input type="number" id="inputc" name="lname"><br>
+    <input type ="button" name="OKE" value="GETJSON" onclick="getLinkJSONpt2()">
 </form>
-        
-    </body>
+<h3>Api json pt2: </h3><h4 id="txt_apijsonpt2"></h4>
+<h1>Kiểm tra năm nhuần</h1>
+<form>
+    <label for="lname">Nhập năm</label><br>
+    <input type="number" id="inputyear" name="lname"><br>
+    <input type ="button" name="OKE" value="GETJSON" onclick="getLinkJSONyear()">
+</form>
+<h3>Api json pt2: </h3><h4 id="txt_apijsonyear"></h4>
+<script>getData();</script>
+</body>
 </html>
