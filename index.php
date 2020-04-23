@@ -5,7 +5,8 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <h1>Cloud-Php-Ex000</h1>
-  <p>Chạy thử 1.</p>
+  $datetime = new DateTime('2013-01-22');
+$datetime->modify('+1 day');
+echo $datetime->format('Y-m-d H:i:s');
 </body>
 </html>
