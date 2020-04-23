@@ -7,7 +7,7 @@
     </head>
     <body>
         <?php 
-            $result = '';
+            $tam_giac = '';
             if (isset($_POST['calculate']))
             {
                  // Bước 1: Lấy tham số
@@ -51,6 +51,6 @@ else {
             <br/><br/>
             <input type="submit" name="calculate" value="phân loại" />
         </form>
-        <?php echo $tamgiac; ?>
+        <?php echo $tam_giac; ?>
     </body>
 </html>
