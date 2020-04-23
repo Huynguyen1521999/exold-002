@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-        <title>Giải phương trình bậc hai</title>
+        <title>Phân loại tam giác</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -16,7 +16,7 @@
     $c = isset($_POST['c']) ? $_POST['c'] : '';
  
     // kiểm tra có phải là 1 tam giác không
-    
+            }
  
     if ($a == $b && $b == $c) {
         $tam_giac = ‘Tam giác đều’;
